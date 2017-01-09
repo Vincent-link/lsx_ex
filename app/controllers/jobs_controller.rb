@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
-  before_action :find_group_and_check_permission , only: [:edit, :destroy, :update]
+  before_action :find_job_and_check_permission , only: [:edit, :destroy, :update]
 
   def index
     @jobs = Job.all
@@ -53,7 +53,7 @@ class JobsController < ApplicationController
     params.require(:job).permit(:title, :description)
   end
 
-  def find_group_and_check_permission
+  def find_job_and_check_permission
     @job = Job.find(params[:id])
 
     if current_user != @job.user
