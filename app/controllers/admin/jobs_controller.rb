@@ -10,6 +10,17 @@ class Admin::JobsController < ApplicationController
     @job = Job.new
   end
 
+  def create
+    @job = Job.new(job_params)
+
+    if @job.save
+      redirect_to admin_jobs_path
+    else
+      render :new
+    end
+  end
+
+
   def show
     @job = Job.find(params[:id])
   end
@@ -25,15 +36,6 @@ class Admin::JobsController < ApplicationController
     redirect_to admin_jobs_path, notice: "Delete Success."
   end
 
-  def create
-    @job = Job.new(job_params)
-
-    if @job.save
-      redirect_to admin_jobs_path
-    else
-      render :new
-    end
-  end
 
   def update
     @job = Job.find(params[:id])
@@ -48,7 +50,7 @@ class Admin::JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email)
+    params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email, :is_hidden)
   end
 
 end
