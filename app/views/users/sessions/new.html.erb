@@ -1,0 +1,32 @@
+
+<section id="login">
+    <div class="container">
+    	<div class="row">
+    	    <div class="col-xs-12">
+        	    <div class="form-wrap">
+                <h1 style="color:#d9534f">登陆</h1>
+                <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                        <div class="form-group">
+
+                            <label for="email" class="sr-only">Email</label>
+                            <%= f.input :email, required: false, autofocus: true %>
+                        </div>
+                        <div class="form-group">
+                            <label for="key" class="sr-only">Password</label>
+                            <%= f.input :password, required: false %>
+                        </div>
+                        <div class="form-group">
+                            <label for="key" class="sr-only">Password</label>
+                            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                        </div>
+                        <%= f.button :submit, "提交" , class: "btn btn-custom btn-lg btn-block"%>
+                    </form>
+                    <% end %>
+                    <%= render "users/shared/links" %>
+
+        	    </div>
+    		</div> <!-- /.col-xs-12 -->
+    	</div> <!-- /.row -->
+    </div> <!-- /.container -->
+</section>

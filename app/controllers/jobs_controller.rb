@@ -20,6 +20,9 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    if !current_user && current_user != @job.user
+      redirect_to new_user_registration_path
+    end
   end
 
   def edit

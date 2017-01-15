@@ -1,0 +1,23 @@
+<section id="login">
+    <div class="container">
+    	<div class="row">
+    	    <div class="col-xs-12">
+        	    <div class="form-wrap">
+                <h1 style="color:#d9534f">忘记密码</h1>
+                <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                  <%= f.error_notification %>
+                    <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                        <div class="form-group">
+                          <%= f.input :email, required: true, autofocus: true %>
+                        </div>
+                        <%= f.button :submit, "重置密码"  , class: "btn btn-custom btn-lg btn-block" %>
+                        <!-- <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in"> -->
+                    </form>
+                    <% end %>
+                    <%= render "users/shared/links" %>
+
+        	    </div>
+    		</div> <!-- /.col-xs-12 -->
+    	</div> <!-- /.row -->
+    </div> <!-- /.container -->
+</section>
