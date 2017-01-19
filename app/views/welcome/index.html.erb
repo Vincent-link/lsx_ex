@@ -3,7 +3,14 @@
     <div class="po">
       <p class="title">行动派是一个提供工作机会的求职网站。</p>
       <p class="slogan">"The distance between your dreams and reality is called action"</p>
-      <p class="lead"><a class="btn btn-lg btn-danger" href="/jobs">马上应征</a></p>
+      <p class="lead">
+        <a class="btn btn-lg btn-danger" href="/jobs">立即应聘</a>
+        <% if !current_user %>
+        <%= link_to("我要招人", new_user_registration_path, class: "btn btn-lg btn-danger") %>
+        <% else %>
+        <%= link_to("我要招人", admin_jobs_path, class: "btn btn-lg btn-danger") %>
+        <% end %>
+      </p>
     </div>
 
   </div>

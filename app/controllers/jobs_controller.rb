@@ -58,6 +58,10 @@ class JobsController < ApplicationController
     end
   end
 
+  def search
+    
+  end
+
   private
 
   def job_params

@@ -18,6 +18,8 @@
                         <div class="form-group">
                             <%= f.input :password_confirmation, required: true %>
                         </div>
+
+                        <%= f.input :is_admin %>
                         <%= f.button :submit, "提交" , class: "btn btn-custom btn-lg btn-block" %>
                         <!-- <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in"> -->
                     </form>
